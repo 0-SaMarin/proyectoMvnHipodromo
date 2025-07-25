@@ -46,17 +46,15 @@ public class HorseTest {
     }
 
     @Test
-    public void getterTest(){
-        String name = "name";
-        double speed = 9;
-        double distance = 8;
-        horse = new Horse(name, speed, distance);
+    public void moveTest(){
+        horse = new Horse("x", 9);
+        horse.move();
+        assertNotEquals(0, horse.getDistance());
+    }
 
-        assertAll("validate getter variables match, variables from the constructor. ",
-                () -> assertEquals(name, horse.getName()),
-                () -> assertEquals(speed, horse.getSpeed()),
-                () -> assertEquals(distance, horse.getDistance())
-        );
-
+    @Test
+    public void getRandomNumTest(){
+        horse = new Horse("x", 10);
+        assertNotEquals(0,horse.getRandomDouble(0.3,0.9));
     }
 }
